@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deadline Reminder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Deadline Reminder</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+  <!-- Inside the <body> tag, after the <section class="hero"> -->
+
+    <h2>Welcome to Deadline Reminder</h2>
+    <p>A simple and efficient way to keep track of your assignment deadlines.</p>
+    <a href="#" class="cta-button">Get Started</a>
+</section>
+<section class="signup">
+  <h2>Sign Up</h2>
+  <form id="signup-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Sign Up</button>
+  </form>
+</section>
+<!-- Inside the <body> tag, after the <section class="signup"> -->
+
+  <section class="login">
+    <h2>Log In</h2>
+    <form id="login-form">
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" name="login-email" required>
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" name="login-password" required>
+        <button type="submit">Log In</button>
+    </form>
+</section>
+<!-- Inside the <body> tag, after the <section class="login"> -->
+
+  <section class="dashboard">
+    <!-- Inside the <section class="dashboard"> -->
+
+<h3>Add New Assignment</h3>
+<form id="add-assignment-form">
+    <label for="assignment-name">Assignment Name:</label>
+    <input type="text" id="assignment-name" name="assignment-name" required>
+    <label for="deadline-date">Deadline Date:</label>
+    <input type="date" id="deadline-date" name="deadline-date" required>
+    <button type="submit">Add Assignment</button>
+</form>
+
+<h3>Upcoming Assignments</h3>
+<ul id="assignments-list">
+    <!-- List of assignments will be added dynamically -->
+</ul>
+
+    <h2>User Dashboard</h2>
+    <div id="upcoming-deadlines">
+        <!-- Placeholder for upcoming deadlines -->
+    </div>
+    <h3>Add New Assignment</h3>
+    <form id="add-assignment-form">
+        <label for="assignment-name">Assignment Name:</label>
+        <input type="text" id="assignment-name" name="assignment-name" required>
+        <label for="deadline-date">Deadline Date:</label>
+        <input type="date" id="deadline-date" name="deadline-date" required>
+        <button type="submit">Add Assignment</button>
+    </form>
+    <!-- Placeholder for list of assignments -->
+</ul>
+
+
+</section>
+
+
+
+<footer>
+    <p>&copy; 2024 Deadline Reminder. All rights reserved.</p>
+</footer>
+<!-- At the bottom of the HTML file, just before the closing </body> tag -->
+
+<script>
+
+document.getElementById("signup-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Get form data
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Simulate sending data to the server
+    console.log("Sign-up form submitted:");
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Password:", password);
+
+    // Reset form fields
+    document.getElementById("signup-form").reset();
+});
+
+// JavaScript code to handle log-in form submission
+
+document.getElementById("login-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Get form data
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+
+    // Simulate sending data to the server
+    console.log("Log-in form submitted:");
+    console.log("Email:", email);
+    console.log("Password:", password);
+
+    // Reset form fields
+    document.getElementById("login-form").reset();
+});
+// JavaScript code to handle "Add Assignment" form submission
+
+document.getElementById("add-assignment-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Get form data
+    const assignmentName = document.getElementById("assignment-name").value;
+    const deadlineDate = document.getElementById("deadline-date").value;
+
+    // Display the new assignment on the dashboard (placeholder for now)
+    const upcomingDeadlines = document.getElementById("upcoming-deadlines");
+    const newAssignment = document.createElement("div");
+    newAssignment.textContent = `${assignmentName} - Deadline: ${deadlineDate}`;
+    upcomingDeadlines.appendChild(newAssignment);
+
+    // Reset form fields
+    document.getElementById("add-assignment-form").reset();
+});
+// JavaScript code to handle "Add Assignment" form submission
+
+document.getElementById("add-assignment-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Get form data
+    const assignmentName = document.getElementById("assignment-name").value;
+    const deadlineDate = document.getElementById("deadline-date").value;
+
+    // Create list item for the new assignment
+    const newAssignmentItem = document.createElement("li");
+    newAssignmentItem.textContent = `${assignmentName} - Deadline: ${deadlineDate}`;
+
+    // Append new assignment item to the list
+    document.getElementById("assignments-list").appendChild(newAssignmentItem);
+
+    // Reset form fields
+    document.getElementById("add-assignment-form").reset();
+});
+
+// JavaScript code to handle assignment deletion
+
+document.getElementById("assignments-list").addEventListener("click", function(event) {
+    if (event.target.classList.contains("delete-button")) {
+        const listItem = event.target.closest("li");
+        listItem.remove();
+    }
+});
+// JavaScript code to handle "Add Assignment" form submission
+
+document.getElementById("add-assignment-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Get form data
+    const assignmentName = document.getElementById("assignment-name").value;
+    const deadlineDate = document.getElementById("deadline-date").value;
+
+    // Create list item for the new assignment
+    const newAssignmentItem = document.createElement("li");
+    newAssignmentItem.textContent = `${assignmentName} - Deadline: ${deadlineDate}`;
+
+    // Create delete button for the new assignment
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-button");
+
+    // Append new assignment item and delete button to the list
+    newAssignmentItem.appendChild(deleteButton);
+    document.getElementById("assignments-list").appendChild(newAssignmentItem);
+
+    // Reset form fields
+    document.getElementById("add-assignment-form").reset();
+});
+
+
+</script>
+
+
+</body>
+</html>
